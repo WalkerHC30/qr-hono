@@ -5,13 +5,19 @@ import { logger } from 'hono/logger';
 import health from './routers/health.js';
 import router from './routers/index.js';
 const app = new Hono();
+// cors
 app.use('*', cors());
-app.use('*', logger());
+// logger
+app.use('*', logger((message, ...rest) => {
+    console.log(`[${new Date().toISOString()}] ${message}`, ...rest);
+}));
+// routers
 app.route('/health', health);
 app.route('/api', router); // 統一加 /api 前綴也在這決定
+// server
 const server = serve({
     fetch: app.fetch,
-    port: 3600
+    port: 3001,
 }, (info) => {
     console.log(`Server is running on http://localhost:${info.port}`);
 });
