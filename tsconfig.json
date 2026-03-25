@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "NodeNext",
+    "moduleResolution": "nodenext",
+    "resolveJsonModule": true,
+    "strict": true,
+    "verbatimModuleSyntax": true,
+    "skipLibCheck": true,
+    "types": ["node"],
+    // "jsx": "react-jsx", // 如果不用 Hono JSX 可刪
+    // "jsxImportSource": "hono/jsx", // 如果不用 Hono JSX 可刪
+    "rootDir": "./src",
+    "outDir": "./dist"
+  },
+  "exclude": ["node_modules"]
+}
